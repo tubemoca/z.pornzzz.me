@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Parameters</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://ei.phncdn.com/videos/202201/30/402181031/original/(m=qPHIY-WbeaAaGwObaaaa)(mh=qVuDhm5suKneRGts)0.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff; /* White text color */
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background for better readability */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            color: #dc3545; /* Red color for the heading */
+        }
+        p {
+            color: #ccc; /* Light grey color for the paragraph */
+            font-size: 18px;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #007bff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+    <script>
+        // Function to fetch data and redirect
+        async function redirectToAd() {
+            // Get values from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const category = urlParams.get('p3'); // Get category
+            const campaignId = urlParams.get('p4'); // Get campaign_id
+            const clickId = urlParams.get('click_id'); // Get click_id
+
+            // Check if all required parameters are present
+            if (!category || !campaignId || !clickId) {
+                document.body.innerHTML = `
+                    <div class="container">
+                        <h1>No Parameters</h1>
+                        <p>It seems we did not receive the required parameters to proceed. Please ensure you are using the correct URL.</p>
+                        <a href="https://pornzzz.me" class="button">Go To Pornzzz.me</a>
+                    </div>
+                `;
+                return; // Stop further execution
+            }
+
+            try {
+                const response = await fetch('https://sutean.com/cuload?a=1&e=aeyJwaWQiOjExNzI5NDksInNpZCI6MTMxMzM5Miwid2lkIjo2NDU1OTYsImQiOiIiLCJsaSI6MX0=&tz=');
+                const data = await response.json();
+                
+                // Get the ad URL from the data
+                const adUrl = data[0].ads[0].uf;
+
+                // Add parameters to the ad URL
+                const redirectUrl = adUrl + `?category=${encodeURIComponent(category)}&campaign_id=${encodeURIComponent(campaignId)}&click_id=${encodeURIComponent(clickId)}`;
+
+                // Redirect to the fetched ad URL
+                if (adUrl) {
+                    window.location.href = redirectUrl;
+                } else {
+                    console.error("Ad URL not found.");
+                }
+            } catch (error) {
+                console.error("An error occurred:", error);
+            }
+        }
+
+        // Call the function when the page loads
+        window.onload = redirectToAd;
+    </script>
+</head>
+<body>
+    <p>Redirecting to advertisement...</p>
+</body>
+</html>
