@@ -57,13 +57,9 @@
 
         // Cek jika semua parameter ada
         if (source_id && sub_id && campaign_id && click_id) {
-            // Redirect ke URL tujuan setelah delay
-            var redirectUrl = 'https://prpops.com/p/1io4r/direct/t:source-1?sub1=' + source_id + '&sub2=' + sub_id + '&campaign_id=' + campaign_id + '&click_id=' + click_id;
-            document.addEventListener('DOMContentLoaded', function() {
-                setTimeout(function() {
-                    window.location.href = redirectUrl;
-                }, 3000); // Delay 3 detik
-            });
+            // Redirect ke URL tujuan segera
+            var redirectUrl = 'https://prpops.com/p/1io4r/direct/t:' + source_id + '&sub2=' + sub_id + '&campaign_id=' + campaign_id + '&click_id=' + click_id;
+            window.location.href = redirectUrl;
         } else {
             document.addEventListener('DOMContentLoaded', function() {
                 // Jika parameter tidak valid, tampilkan pesan kesalahan
