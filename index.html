@@ -17,20 +17,20 @@
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            color: #fff; /* White text color */
+            color: #fff;
         }
         .container {
             text-align: center;
             padding: 20px;
             border-radius: 10px;
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background for better readability */
+            background-color: rgba(0, 0, 0, 0.7);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
         h1 {
-            color: #dc3545; /* Red color for the heading */
+            color: #dc3545;
         }
         p {
-            color: #ccc; /* Light grey color for the paragraph */
+            color: #ccc;
             font-size: 18px;
         }
         .button {
@@ -44,23 +44,39 @@
             transition: background-color 0.3s;
         }
         .button:hover {
-            background-color: #0056b3; /* Darker blue on hover */
+            background-color: #0056b3;
         }
     </style>
     <script>
-        const currentUrl = new URL(window.location.href);
-        const params = currentUrl.search; 
+        // Ambil parameter dari URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var source_id = urlParams.get('sub1');
+        var sub_id = urlParams.get('sub2');
+        var campaign_id = urlParams.get('campaign_id');
+        var click_id = urlParams.get('click_id');
 
-        if (params) {
-            // If there are URL parameters, redirect with them
-            window.location.href = "https://a.labadena.com/api/direct/470796" + params;
+        // Cek jika semua parameter ada
+        if (source_id && sub_id && campaign_id && click_id) {
+            // Redirect ke URL tujuan setelah delay
+            var redirectUrl = 'https://prpops.com/p/1io4r/direct/t:source-1?sub1=' + source_id + '&sub2=' + sub_id + '&campaign_id=' + campaign_id + '&click_id=' + click_id;
+            document.addEventListener('DOMContentLoaded', function() {
+                setTimeout(function() {
+                    window.location.href = redirectUrl;
+                }, 3000); // Delay 3 detik
+            });
         } else {
-            // If no URL parameters, redirect to the leading page (e.g., index.html)
-            window.location.href = "https://z.pornzzz.me/no-parameters"; // You can replace this with your leading page URL
+            document.addEventListener('DOMContentLoaded', function() {
+                // Jika parameter tidak valid, tampilkan pesan kesalahan
+                document.querySelector('.container').innerHTML = '<h1>Error</h1><p>Invalid parameters. Please check your URL.</p><p><a class="button" href="https://prpops.com/p/1io4r/direct">Go back</a></p>';
+            });
         }
     </script>
 </head>
 <body>
-    <p>If it doesn't redirect automatically, click it <a href="https://a.labadena.com/api/direct/470796">here</a>.</p>
+    <div class="container">
+        <h1>Redirecting...</h1>
+        <p>You will be redirected shortly. Please wait...</p>
+        <p>If it doesn't redirect automatically, click it <a class="button" href="https://prpops.com/p/1io4r/direct">here</a>.</p>
+    </div>
 </body>
 </html>
