@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,30 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirection...</title>
     <script>
-        // Ambil parameter dari URL
-        var urlParams = new URLSearchParams(window.location.search);
-        var sub1 = urlParams.get('sub1'); // Dapatkan sub1 dari URL
-        var sub2 = urlParams.get('sub2'); // Dapatkan sub2 dari URL
-        var campaign_id = urlParams.get('campaign_id'); // Dapatkan campaign_id dari URL
-        var click_id = urlParams.get('click_id'); // Dapatkan click_id dari URL
+        const currentUrl = new URL(window.location.href);
+        const params = currentUrl.searchParams; // Mendapatkan semua parameter URL
 
-        // Jika parameter lengkap, redirect ke URL tujuan
-        if (sub1 && sub2 && campaign_id && click_id) {
-            var redirectUrl = 'https://a.labadena.com/api/direct/483673?sub1=' + sub1 + '&sub2=' + sub2 + '&campaign_id=' + campaign_id + '&click_id=' + click_id;
-            window.location.href = redirectUrl;
+        // Cek apakah parameter p ada dan bernilai 1
+        if (params.has('p') && params.get('p') === '1') {
+            // Jika ada parameter ?p=1, redirect ke URL target dengan parameter yang ada
+            window.location.href = "https://a.labadena.com/api/direct/483673" + currentUrl.search;
         } else {
-            document.addEventListener('DOMContentLoaded', function() {
-                // Tampilkan pesan error jika parameter tidak valid
-                document.querySelector('.container').innerHTML = '<h1>Error</h1><p>Missing required parameters. Please check your URL.</p><p><a class="button" href="https://example.com">Go back</a></p>';
-            });
+            // Jika tidak ada ?p=1, redirect ke URL alternatif
+            window.location.href = "https://z.pornzzz.me/no-parameters/?s=noparameter";
         }
     </script>
 </head>
 <body>
-    <div class="container">
-        <h1>Redirecting...</h1>
-        <p>You will be redirected shortly. Please wait...</p>
-        <p>If it doesn\'t redirect automatically, click it <a class="button" href="https://z.pornzzz.me/no-parameters?s=eror">here</a>.</p>
-    </div>
+    <p>If it doesn't redirect automatically, click <a href="https://z.pornzzz.me/no-parameters/?s=noparameter">here</a> if there's no parameter, or <a href="https://a.labadena.com/api/direct/483673">here</a> for the original redirection.</p>
 </body>
 </html>
