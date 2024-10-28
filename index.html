@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Redirect</title>
+    <script>
+        // Function to get query parameters from the URL
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            const sourceId = params.get('s1'); // Get source_id_sub_id
+            const campaignId = params.get('campaign_id');
+            const clickId = params.get('click_id');
+
+            // Construct the new URL
+            const newUrl = `https://find-sex.co/promo?p1=${sourceId}&p2=${campaignId}&p3=${clickId}`;
+            return newUrl;
+        }
+
+        // Redirect to the new URL when the page loads
+        window.onload = function() {
+            const newUrl = getQueryParams();
+            window.location.href = newUrl; // Redirect to the new URL
+        };
+    </script>
+</head>
+<body>
+    <p>Redirecting to the new URL...</p>
+</body>
+</html>
